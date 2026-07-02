@@ -58,3 +58,18 @@ The fastest way is the built-in **`create-plugin`** skill (in
 `.claude/skills/`): just say something like _"create a new plugin"_ while
 working in this repo and it will scaffold the folder, manifest, and any
 components you pick, then register the plugin in the marketplace for you.
+
+## Updating a plugin
+
+After changing an existing plugin, its version needs bumping in two places that
+must stay in sync — the plugin's `.claude-plugin/plugin.json` and its entry in
+`.claude-plugin/marketplace.json` — since Claude Code resolves plugin updates
+from that per-plugin version.
+
+The built-in **`update-plugin`** skill (in `.claude/skills/`) handles this: say
+something like _"bump the version"_, _"cut a new release"_, or _"I added a skill,
+sync the marketplace"_ while working in this repo. It surveys what changed, asks
+whether it's a patch, minor, or major bump, updates the version in both files,
+syncs descriptions/keywords, wires up any newly added component, and validates
+that everything lines up. (The top-level `marketplace.json` version is catalog
+metadata and is left alone on a routine plugin bump.)
