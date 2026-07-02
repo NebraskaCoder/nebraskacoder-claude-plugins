@@ -20,6 +20,12 @@
       "source": "./plugins/research",
       "description": "Disciplined iterative web research — decompose a question, search in batches, verify load-bearing facts against primary sources, and synthesize a cited answer.",
       "version": "0.1.0"
+    },
+    {
+      "name": "statusline",
+      "source": "./plugins/statusline",
+      "description": "Install NebraskaCoder's three-line Claude Code statusline — model/fast/effort/dir/git/PR, a context-usage bar with cost and duration, and Pro/Max rate-limit windows — via a bundled script.",
+      "version": "0.1.0"
     }
   ]
 }

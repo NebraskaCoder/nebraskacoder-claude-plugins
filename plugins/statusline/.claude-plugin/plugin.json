@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "statusline",
+  "version": "0.1.0",
+  "description": "Install NebraskaCoder's three-line Claude Code statusline — model/fast/effort/dir/git/PR, a context-usage bar with cost and duration, and Pro/Max rate-limit windows — via a bundled script.",
+  "author": {
+    "name": "NebraskaCoder",
+    "email": "nebraskacoder@gmail.com",
+    "url": "https://github.com/NebraskaCoder"
+  },
+  "homepage": "https://github.com/NebraskaCoder/nebraskacoder-claude-plugins",
+  "keywords": ["statusline", "status-line", "prompt", "customization"]
+}
