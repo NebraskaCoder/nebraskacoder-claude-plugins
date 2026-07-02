@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "project-setup",
+  "version": "0.1.0",
+  "description": "Set up or audit Claude Code project memory the right way — a lean CLAUDE.md plus offloaded docs, path-scoped .claude/rules/, and skills — so instructions stay high-signal instead of bloating context.",
+  "author": {
+    "name": "NebraskaCoder",
+    "email": "nebraskacoder@gmail.com",
+    "url": "https://github.com/NebraskaCoder"
+  },
+  "homepage": "https://github.com/NebraskaCoder/nebraskacoder-claude-plugins",
+  "keywords": ["claude-md", "project-memory", "setup", "skills"]
+}

@@ -8,5 +8,12 @@
     "email": "nebraskacoder@gmail.com",
     "url": "https://github.com/NebraskaCoder"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "project-setup",
+      "source": "./plugins/project-setup",
+      "description": "Set up or audit Claude Code project memory the right way — a lean CLAUDE.md plus offloaded docs, path-scoped .claude/rules/, and skills — so instructions stay high-signal instead of bloating context.",
+      "version": "0.1.0"
+    }
+  ]
 }
