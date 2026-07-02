@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "nebraskacoder-claude-plugins",
+  "description": "NebraskaCoder Claude Plugins — a personal collection of Claude Code plugins.",
+  "version": "1.0.0",
+  "owner": {
+    "name": "NebraskaCoder",
+    "email": "nebraskacoder@gmail.com",
+    "url": "https://github.com/NebraskaCoder"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": []
+}
