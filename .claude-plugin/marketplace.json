@@ -14,6 +14,12 @@
       "source": "./plugins/project-setup",
       "description": "Set up or audit Claude Code project memory the right way — a lean CLAUDE.md plus offloaded docs, path-scoped .claude/rules/, and skills — so instructions stay high-signal instead of bloating context.",
       "version": "0.1.0"
+    },
+    {
+      "name": "research",
+      "source": "./plugins/research",
+      "description": "Disciplined iterative web research — decompose a question, search in batches, verify load-bearing facts against primary sources, and synthesize a cited answer.",
+      "version": "0.1.0"
     }
   ]
 }

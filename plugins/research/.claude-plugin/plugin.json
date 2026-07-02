@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "research",
+  "version": "0.1.0",
+  "description": "Disciplined iterative web research — decompose a question, search in batches, verify load-bearing facts against primary sources, and synthesize a cited answer.",
+  "author": {
+    "name": "NebraskaCoder",
+    "email": "nebraskacoder@gmail.com",
+    "url": "https://github.com/NebraskaCoder"
+  },
+  "homepage": "https://github.com/NebraskaCoder/nebraskacoder-claude-plugins",
+  "keywords": ["research", "web-search", "iterative", "citations"]
+}

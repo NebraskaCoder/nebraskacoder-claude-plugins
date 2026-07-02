@@ -1,0 +1,66 @@
+{
+  "skill_name": "iterative-research",
+  "evals": [
+    {
+      "id": 0,
+      "name": "react-button-accessibility",
+      "shape": "how-to",
+      "prompt": "I'm building a custom <CheckoutButton> in a React app and I keep getting flagged in accessibility audits. The button is icon-only (a shopping cart svg) with a number badge for the cart count. How do I make this thing actually accessible — like, screen readers reading the right thing, keyboard works, focus visible, the count gets announced when it changes? I'm using Tailwind for styles.",
+      "expected_output": "Concrete React + Tailwind steps for the icon-only button: ARIA labelling, live-region behavior for count changes, focus-visible styling, native <button> over div. Sources cited.",
+      "files": [],
+      "assertions": [
+        { "id": "L1", "category": "loop",    "text": "search-log.md exists at the outputs directory and is non-empty" },
+        { "id": "L2", "category": "loop",    "text": "search-log.md records at least 3 distinct WebSearch or WebFetch operations" },
+        { "id": "L3", "category": "loop",    "text": "search-log.md documents an evolving plan — initial sub-questions AND at least one reshape move (add/remove/pivot/confirm)" },
+        { "id": "L4", "category": "loop",    "text": "At least one load-bearing fact in answer.md was verified at a primary source via WebFetch (MDN, W3C, WAI-ARIA APG)" },
+        { "id": "C1", "category": "context", "text": "answer.md mentions React AND Tailwind by name and addresses all four areas (naming, keyboard, focus, count announcement)" },
+        { "id": "A1", "category": "content", "text": "Uses native <button> rather than div with role=button" },
+        { "id": "A2", "category": "content", "text": "Gives the icon-only button an accessible name (aria-label, aria-labelledby, or visually-hidden text)" },
+        { "id": "A3", "category": "content", "text": "Handles count-change announcement using an ARIA live region (role=status / aria-live / aria-atomic)" },
+        { "id": "A4", "category": "content", "text": "Marks the SVG as decorative (aria-hidden=\"true\") when a separate accessible name is set" },
+        { "id": "O1", "category": "output",  "text": "answer.md ends with a Sources section of markdown links" }
+      ]
+    },
+    {
+      "id": 1,
+      "name": "github-actions-aws-secrets-oidc",
+      "shape": "best-practice / current-recommendation",
+      "prompt": "What's the actual current best practice for storing secrets in GitHub Actions workflows that deploy to AWS? I keep seeing OIDC mentioned but our older workflows are using long-lived IAM user access keys stored as repo secrets, and I'm not sure if we should migrate or how big a deal it is.",
+      "expected_output": "Clear OIDC recommendation, migration path, honest urgency assessment. Sources cited.",
+      "files": [],
+      "assertions": [
+        { "id": "L1", "category": "loop",    "text": "search-log.md exists at the outputs directory and is non-empty" },
+        { "id": "L2", "category": "loop",    "text": "search-log.md records at least 3 distinct WebSearch or WebFetch operations" },
+        { "id": "L3", "category": "loop",    "text": "search-log.md documents an evolving plan — initial sub-questions AND at least one reshape move" },
+        { "id": "L4", "category": "loop",    "text": "At least one load-bearing fact verified at a primary source (docs.aws.amazon.com, docs.github.com, or aws-actions/configure-aws-credentials repo)" },
+        { "id": "C1", "category": "context", "text": "Addresses the user's actual situation (currently using long-lived IAM access keys as repo secrets), not a generic OIDC explainer" },
+        { "id": "A1", "category": "content", "text": "Clearly recommends OIDC + role-to-assume over long-lived IAM access keys" },
+        { "id": "A2", "category": "content", "text": "Mentions GitHub OIDC issuer / IAM identity provider setup" },
+        { "id": "A3", "category": "content", "text": "Mentions aws-actions/configure-aws-credentials OR permissions: id-token: write" },
+        { "id": "A4", "category": "content", "text": "Provides concrete migration steps (ordered recipe), not just 'you should migrate'" },
+        { "id": "A5", "category": "content", "text": "Gives an explicit 'how big a deal' assessment with urgency framing" },
+        { "id": "O1", "category": "output",  "text": "answer.md ends with a Sources section of markdown links" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "homelab-reverse-proxy-choice",
+      "shape": "comparison / decision",
+      "prompt": "I need to pick a reverse proxy for a small homelab — about 12 services behind it, mix of static sites and a couple of Node apps. I'm comfortable with plain nginx configs but I keep hearing Caddy and Traefik are easier for auto-HTTPS. What should I actually use?",
+      "expected_output": "Explicit pick tailored to homelab + 12 services + nginx-comfort + auto-HTTPS. Costs of pick named. Sources cited.",
+      "files": [],
+      "assertions": [
+        { "id": "L1", "category": "loop",    "text": "search-log.md exists at the outputs directory and is non-empty" },
+        { "id": "L2", "category": "loop",    "text": "search-log.md records at least 3 distinct WebSearch or WebFetch operations" },
+        { "id": "L3", "category": "loop",    "text": "search-log.md documents an evolving plan — initial sub-questions AND at least one reshape move" },
+        { "id": "L4", "category": "loop",    "text": "At least one load-bearing fact verified at a primary source (caddyserver.com, doc.traefik.io, nginx.org/nginx.com)" },
+        { "id": "C1", "category": "context", "text": "Anchored to user context: homelab, ~12 services, already knows nginx, auto-HTTPS — not a generic comparison" },
+        { "id": "A1", "category": "content", "text": "Covers all three (nginx, Caddy, Traefik) — none silently dropped" },
+        { "id": "A2", "category": "content", "text": "Makes an explicit pick (names ONE), not 'it depends'" },
+        { "id": "A3", "category": "content", "text": "Names a cost / limitation / tradeoff of the recommended option" },
+        { "id": "A4", "category": "content", "text": "Says when one of the non-picked options would have been the right call" },
+        { "id": "O1", "category": "output",  "text": "answer.md ends with a Sources section of markdown links" }
+      ]
+    }
+  ]
+}
