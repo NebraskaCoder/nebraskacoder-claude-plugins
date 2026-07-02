@@ -45,8 +45,8 @@ nebraskacoder-claude-plugins/
   `.claude-plugin/`.
 - Each plugin lives in its own folder under `plugins/` and has its own
   `.claude-plugin/plugin.json`.
-- The marketplace's `metadata.pluginRoot` is `./plugins`, so plugin `source`
-  paths are resolved relative to that directory.
+- Plugin `source` paths in the catalog are relative to the repo root, e.g.
+  `"./plugins/<plugin-name>"`.
 
 ## Adding a new plugin
 
@@ -54,6 +54,7 @@ Each new plugin needs a `plugins/<plugin-name>/` folder with a
 `.claude-plugin/plugin.json`, plus an entry appended to the `plugins` array in
 `.claude-plugin/marketplace.json`.
 
-## Available plugins
-
-_None yet — the first one is on its way._
+The fastest way is the built-in **`create-plugin`** skill (in
+`.claude/skills/`): just say something like _"create a new plugin"_ while
+working in this repo and it will scaffold the folder, manifest, and any
+components you pick, then register the plugin in the marketplace for you.

@@ -8,8 +8,5 @@
     "email": "nebraskacoder@gmail.com",
     "url": "https://github.com/NebraskaCoder"
   },
-  "metadata": {
-    "pluginRoot": "./plugins"
-  },
   "plugins": []
 }
