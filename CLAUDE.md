@@ -43,7 +43,8 @@ components + the occasional bundled script.
 ## Repo etiquette
 
 - Author defaults for new manifests: `NebraskaCoder` /
-  `nebraskacoder@gmail.com` / `https://github.com/NebraskaCoder`.
+  `nebraskacoder@gmail.com` / `https://github.com/NebraskaCoder`. Default
+  `license`: `Unlicense` (public domain; the repo's `LICENSE` file).
 - After editing any JSON, confirm it parses and names/versions line up, e.g.:
   `python3 -c "import json,sys; [json.load(open(f)) for f in sys.argv[1:]]; print('ok')" <files>`
 - Don't commit or push unless asked — leave the working tree ready.

@@ -15,13 +15,13 @@ root and are auto-discovered.
 | `displayName`   | string          | No       | Human-readable name for UI; falls back to `name`. |
 | `homepage`      | string          | No       | Docs URL. |
 | `repository`    | string          | No       | Source URL. |
-| `license`       | string          | No       | SPDX id (e.g. `MIT`, `Apache-2.0`). |
+| `license`       | string          | No       | SPDX id. This repo's default is `Unlicense` (public domain); see the repo `LICENSE`. |
 | `keywords`      | array<string>   | No       | Discovery tags. |
 | `defaultEnabled`| boolean         | No       | Whether the plugin starts enabled after install. Default true. |
 | `$schema`       | string          | No       | JSON Schema URL for editor validation. |
 
 \* Not required by the loader, but this repo's convention is to always include
-`version`, `description`, and `author`.
+`version`, `description`, `author`, and `license` (`Unlicense`).
 
 ### Component path overrides (usually unnecessary)
 
@@ -56,7 +56,7 @@ Because the defaults are auto-discovered, a plugin using standard layout should
   },
   "homepage": "https://github.com/NebraskaCoder/nebraskacoder-claude-plugins",
   "repository": "https://github.com/NebraskaCoder/nebraskacoder-claude-plugins",
-  "license": "MIT",
+  "license": "Unlicense",
   "keywords": ["productivity"]
 }
 ```

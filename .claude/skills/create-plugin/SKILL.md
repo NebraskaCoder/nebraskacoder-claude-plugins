@@ -65,6 +65,8 @@ Ask for, and settle on, these before creating any files:
   - name: `NebraskaCoder`
   - email: `nebraskacoder@gmail.com`
   - url: `https://github.com/NebraskaCoder`
+- **license** — default `Unlicense` (this repo is public-domain; see its
+  `LICENSE`). Only change it if the user asks.
 
 Before writing anything, check that `plugins/<name>/` does not already exist. If
 it does, stop and ask whether to pick a different name or update the existing
@@ -98,12 +100,13 @@ Write `plugins/<name>/.claude-plugin/plugin.json`. Minimal shape:
     "url": "https://github.com/NebraskaCoder"
   },
   "homepage": "https://github.com/NebraskaCoder/nebraskacoder-claude-plugins",
+  "license": "Unlicense",
   "keywords": []
 }
 ```
 
 `name` is the only strictly required field, but always include `version`,
-`description`, and `author` — they drive the UI and update behavior. Only add
+`description`, `author`, and `license` — they drive the UI and update behavior. Only add
 component path keys (`commands`, `agents`, `skills`, `hooks`, `mcpServers`) if the
 user puts components in non-default locations; the default directories are
 auto-discovered, so listing them is redundant. See `references/plugin-json.md`

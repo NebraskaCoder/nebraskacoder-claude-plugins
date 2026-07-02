@@ -73,3 +73,9 @@ whether it's a patch, minor, or major bump, updates the version in both files,
 syncs descriptions/keywords, wires up any newly added component, and validates
 that everything lines up. (The top-level `marketplace.json` version is catalog
 metadata and is left alone on a routine plugin bump.)
+
+## License
+
+Released into the public domain under [The Unlicense](https://unlicense.org) —
+see [`LICENSE`](LICENSE). Use, copy, modify, and distribute freely, no
+attribution required.

@@ -9,5 +9,6 @@
     "url": "https://github.com/NebraskaCoder"
   },
   "homepage": "https://github.com/NebraskaCoder/nebraskacoder-claude-plugins",
+  "license": "Unlicense",
   "keywords": ["statusline", "status-line", "prompt", "customization"]
 }
