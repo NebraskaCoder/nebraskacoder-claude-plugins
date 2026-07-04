@@ -4,6 +4,11 @@
 # Line 2: context bar w/ absolute tokens, cost, duration, 200k warning
 # Line 3: rate-limit windows w/ usage % and reset countdown (Pro/Max only)
 # See https://code.claude.com/docs/en/statusline for the input schema.
+#
+# Requires a bash + coreutils environment: macOS, Linux, and on Windows via
+# Git Bash / WSL. It won't run under native cmd/PowerShell (no bash, jq, or git).
+# `date` is handled for both BSD (macOS) and GNU (Linux/Git Bash/WSL); busybox
+# (e.g. Alpine) may pad or drop the wall-clock time but the countdown still works.
 
 input=$(cat)
 
@@ -41,13 +46,23 @@ humanize() {
 USED_H=$(humanize "$USED_TOK")
 SIZE_H=$(humanize "$CTX_SIZE")
 
-# --- Countdown from a Unix epoch to "Xh Ym" (clamps negatives to 0m) ---
+# --- Countdown from a Unix epoch to "Xd Yh Zm" (clamps negatives to 0m) ---
+# Days shown only past 24h (weekly window); hours dropped under an hour.
 fmt_reset() {
-    local target=$1 now diff h m
+    local target=$1 now diff d h m
     now=$(date +%s)
     diff=$(( target - now )); [ "$diff" -lt 0 ] && diff=0
-    h=$(( diff / 3600 )); m=$(( (diff % 3600) / 60 ))
-    if [ "$h" -gt 0 ]; then printf '%dh %dm' "$h" "$m"; else printf '%dm' "$m"; fi
+    d=$(( diff / 86400 )); h=$(( (diff % 86400) / 3600 )); m=$(( (diff % 3600) / 60 ))
+    if [ "$d" -gt 0 ]; then printf '%dd %dh %dm' "$d" "$h" "$m"
+    elif [ "$h" -gt 0 ]; then printf '%dh %dm' "$h" "$m"
+    else printf '%dm' "$m"; fi
+}
+
+# --- Wall-clock reset moment as "Thu 8:59 AM" (BSD -r vs GNU -d @) ---
+fmt_reset_clock() {
+    local target=$1
+    date -r "$target" '+%a %-I:%M %p' 2>/dev/null \
+        || date -d "@$target" '+%a %-I:%M %p' 2>/dev/null
 }
 
 # --- Fast mode ---
@@ -104,7 +119,7 @@ rate_seg() {  # $1=label $2=pct $3=reset_epoch
     pct=$(printf '%.0f' "$pct")
     if [ "$pct" -ge 90 ]; then c="$RED"; elif [ "$pct" -ge 70 ]; then c="$YELLOW"; else c="$GREEN"; fi
     printf '%s%s%s %s%s%%%s' "$CYAN" "$label" "$RESET" "$c" "$pct" "$RESET"
-    [ -n "$reset" ] && printf ' %s↻ %s%s' "$DIM" "$(fmt_reset "$reset")" "$RESET"
+    [ -n "$reset" ] && printf ' %s↻ %s (%s)%s' "$DIM" "$(fmt_reset "$reset")" "$(fmt_reset_clock "$reset")" "$RESET"
 }
 RATE_LINE=""
 [ -n "$FIVE_H" ]  && RATE_LINE="$(rate_seg '5h' "$FIVE_H" "$FIVE_H_RESET")"

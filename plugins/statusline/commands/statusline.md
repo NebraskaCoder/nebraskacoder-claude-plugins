@@ -15,6 +15,13 @@ Pro/Max rate-limit windows with usage % and reset countdowns.
 The script is bundled with this plugin at `${CLAUDE_PLUGIN_ROOT}/assets/statusline.sh`
 — treat it as the source of truth and copy it verbatim. Do not rewrite it.
 
+**OS support:** it's a bash script needing `bash`, `jq`, and `git`, so it runs on
+macOS, Linux, and Windows via Git Bash or WSL — **not** native cmd/PowerShell. The
+`date` handling covers both BSD (macOS) and GNU (Linux/Git Bash/WSL); on busybox
+(e.g. Alpine) the weekly reset's wall-clock time may pad or drop, but the countdown
+still renders. If the user is on native Windows, tell them to run Claude Code from a
+Git Bash or WSL shell so the statusline command can execute.
+
 If the argument is `--print`, only show what you *would* do (the target paths and
 the settings block) and stop — don't touch anything.
 
